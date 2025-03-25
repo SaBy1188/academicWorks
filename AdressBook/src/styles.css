@@ -1,0 +1,27 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff3d9;
+  font-family: "Roboto Light", Arial, sans-serif;
+}
+
+h1, h2, h3, button, name, div {
+  text-align: center;
+}
+
+h2, h3, ul, li {
+  color: #07a7ad;
+}
+
+h1 {
+  font-family: "Agency FB";
+  font-size: xxx-large;
+  color: #5825a6;
+  text-shadow: 2px 2px #f554cd;
+}
+
+button, badge {
+  color: #5825a6;
+  font-weight: bold;
+}

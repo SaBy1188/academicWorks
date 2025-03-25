@@ -1,0 +1,30 @@
+/* Step 5 */
+/*label {
+  color: #067679;
+  font-weight: bold;
+}*/
+
+input {
+  font-size: 1em;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 20px;
+  color: white;
+  background-color: #5825a6;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: #985df8;
+}
+
+/*button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}*/

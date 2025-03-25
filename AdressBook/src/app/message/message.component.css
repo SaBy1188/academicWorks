@@ -1,0 +1,13 @@
+/* Step 4 */
+.clear {
+  color: #ffffff;
+  background-color: #f554cd;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.clear:hover {
+  color: white;
+  background-color: #e37dc9;
+}

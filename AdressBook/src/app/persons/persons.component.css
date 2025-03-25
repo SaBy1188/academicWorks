@@ -1,0 +1,123 @@
+/* Step 2 */
+.persons {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.persons li {
+  /* display: flex; */
+  /* Step 5 */
+  position: relative;
+  cursor: pointer;
+}
+
+/* Step 5 */
+.persons li:hover {
+  left: .1em;
+}
+
+.persons a {
+  color: #5825a6;
+  text-decoration: none;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+.persons a:hover {
+  color: #ffffff;
+  background-color: #985df8;
+}
+
+.persons a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+/* Step 2 */
+/*
+.persons button {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #94ff2d;
+  margin: .5em;
+  padding: 0;
+  border-radius: 5px;
+  border-color: #8734c9;
+  display: flex;
+  align-items: stretch;
+  height: 2rem;
+}
+
+.persons button:hover {
+  color: #5825a6;
+  background-color: #cfffa6;
+  left: 0em;
+}
+
+.persons button:active {
+  background-color: #37176b;
+  color: #fafafa;
+}
+
+.persons button.selected {
+  background-color: #5825a6;
+  color: white;
+}
+
+.persons button.selected:hover {
+  background-color: #7f64af;
+  color: white;
+}
+
+.persons button.selected:active {
+  background-color: black;
+  color: white;
+}
+*/
+.persons .badge {
+  /* Step 2 */
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #5825a6;
+  line-height: 1em;
+  margin-right: .8em;
+  border-radius: 2px 0 0 2px;
+  /* Step 5 */
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+}
+
+.persons .name {
+  align-self: center;
+}
+
+/* Step 4 */
+/*
+.add {
+  color: #ffffff;
+  background-color: #f554cd;
+  margin-bottom: 12px;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.add:hover {
+  color: white;
+  background-color: #42545C;
+}
+*/
