@@ -1,0 +1,30 @@
+<h1 style="font-family: 'Arial'; font-weight: bold">
+  Hallo, {{ name }}.<br>Welcome to your {{ title }}!
+</h1>
+
+<hr>
+<div>
+  Dein Name:
+  <input type="text"
+         [(ngModel)]="name">
+  <!--(ngModelChange)="name=$event"-->
+  <!--[value]="name"
+  //(keyup)="$event"-->
+</div>
+<br>
+<div>
+  Counter: {{ counter }}
+  <button (click)="resetCounter()" [disabled]="counter < 20">
+    Reset
+  </button>
+</div>
+<br>
+<div *ngIf="counter <= 10" style="font-family: Arial; font-size: medium">Der frühe Vogel und..</div>
+<div *ngIf="counter > 10 && counter <= 50" style="font-family: Arial; font-size: medium">...der Wurm</div>
+<div *ngIf="counter > 50" style="font-family: Arial; font-size: medium">Guten Morgääähn!</div>
+<br>
+<hr>
+<div *ngFor="let person of persons" style="font-family: Arial; font-size: medium">
+  <app-person-details [persona]="person"></app-person-details>
+  {{ person.name }} hat die Personalnummmer {{ person.id }}
+</div>
