@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap from local-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="makeover.css"/>
+    <title>levity station</title>
+</head>
+<body>
+
+<!-- NAVIGATIONSBAR -->
+<nav class="navbar navbar-dark navbar-expand-lg bg-transparent fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">|evity <strong>station</strong><br>
+            <p class="jp">けいかさ</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">x</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">station</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Booking.html">booking</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+            high-quality decks suited for your inner balance.
+      </span>
+        </div>
+    </div>
+</nav>
+<!-- NAVIGATIONSBAR END -->
+
+<div class="backgroundOne">
+</div>
+
+<!-- CONTENT -->
+<div class="container mx-auto">
+    <div class="row mx-auto">
+        <div class="col mx-auto"><!-- Use it like any other HTML element -->
+            <model-viewer id="shuttleshowcase" interpolation-decay="200" src="the_vector_air_bus.glb"
+                          alt="Your way to levity station"></model-viewer>
+            <script>
+                (() => {
+                    const modelViewer = document.querySelector('#shuttleshowcase');
+                    const orbitCycle = [
+                        '235deg 55deg 100m',
+                        '-60deg 40deg 100m',
+                        '180deg -60def 100m',
+                        modelViewer.cameraOrbit
+                    ];
+
+                    setInterval(() => {
+                        const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+                        modelViewer.cameraOrbit =
+                            orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+                    }, 3000);
+                })();
+            </script>
+            <p style="color: grey">model by: VertaScan</p>
+        </div>
+        <div class="col shipdesc"><p>The Wanderfalke© S230 Series has central heating, interia dampers and will make
+            your trip to the levity station a unique experience.
+            <ul>
+            <li>
+                speeds up to 0.3 AU.
+            </li>
+            <li>
+                Jolteon™  powered Interia Dampers.
+            </li>
+            <li>
+                forceshielded windows for the best panoramic milky way experience.
+            </li>
+            <li>
+                pickup from any planet in the sol system.
+            </li>
+            <li>
+                comfortable seating, beds in lower compartments.
+            </li>
+            </ul>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="backgroundTwo">
+</div>
+
+
+<div class="container mx-auto">
+            <model-viewer class="robot" camera-controls touch-action="pan-y"
+                          camera-orbit="calc(-1.5rad + env(window-scroll-y) * 2rad) calc(+50deg + env(window-scroll-y) * 90deg) calc(200m - env(window-scroll-y) * 100m)"
+                          src="the_vector_air_bus.glb" alt="Butler Drone">
+            </model-viewer>
+</div>
+
+
+<!-- BUTTON OVERLAY -->
+<figure>
+    <div class="backgroundThree">
+        <div class="levity-button-center position-relative top-50">
+            <p>
+                <button class="btn btn-dark btn-outline-light levity-button levity-button-pm"><a href="Booking.html" class="levity-link page-link" style="text-decoration: none">booking</a></button>
+            </p>
+        </div>
+    </div>
+</figure>
+<!-- BUTTON OVERLAY END -->
+<!-- CONTENT END-->
+
+<!-- FOOTER -->
+<div class="levity-bg bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center levity-pm">
+        <p class="col-md-4 mb-0 levity-text-muted">&copy; 2023 |evity station<!--/br>office: moorfuhrtweg 13, 22301 hamburg--></p>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 levity-text-muted">station</a></li>
+            <li class="nav-item"><a href="Booking.html" class="nav-link px-2 levity-text-muted">booking</a></li>
+            <li class="nav-item"><a href="team.html" class="nav-link px-2 levity-text-muted">team</a></li>
+        </ul>
+    </footer>
+</div>
+<!-- FOOTER END -->
+
+<!-- JavaScript from local-->
+<script src="../js/bootstrap.bundle.min.js"></script>
+<!-- Import the model-viewer component -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+
+</body>
+</html>

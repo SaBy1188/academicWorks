@@ -1,0 +1,185 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+div {
+    padding: 0;
+}
+
+* {
+    font-family: "Space Grotesk", serif;
+}
+
+.jp {
+    font-size: 0.8rem;
+}
+
+.navbar-text {
+    display: none;
+}
+
+model-viewer {
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+}
+
+.robot {
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+}
+
+.backgroundOne {
+    background-image: url("./main/resources/background1mobile.png");
+    height: 500px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.backgroundTwo {
+    background-image: url("./main/resources/background3mobile.png");
+    height: 500px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.backgroundThree {
+    background-image: url("./main/resources/background4mobile.png");
+    height: 500px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text {
+}
+
+.team {
+    margin-top: 5rem;
+}
+/* BUTTON */
+.levity-button-pm {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-top: 25px;
+}
+
+.levity-button-center {
+    display: flex;
+    justify-content: center;
+}
+
+.btn.levity-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 50px;
+    border-width: 0.15rem;
+    border-radius: 1.0rem;
+}
+/* BUTTON END */
+
+/* FOOTER */
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.levity-footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.levity-bg {
+    background-color: #000000;
+}
+
+.levity-pm {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.levity-text-muted {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: bold;
+}
+/* FOOTER END */
+
+@media (min-width: 1000px) {
+    .navbar-text {
+        display: contents;
+    }
+
+    .robot {
+        display: none;
+    }
+
+    model-viewer {
+        width: 50rem;
+        height: 50rem;
+    }
+
+    .shipdesc {
+        margin-top: 15rem;
+    }
+
+    .backgroundOne {
+        background-image: url("./main/resources/background3.png");
+        height: 1004px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .backgroundTwo {
+        background-image: url("./main/resources/background2.png");
+        height: 1004px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .backgroundThree {
+        background-image: url("./main/resources/background4.png");
+        height: 1004px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .body > div > footer {
+        margin: 0px;
+    }
+
+    .teamL {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .teamR {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .teamplay{
+        display: block;
+        margin-top: 10rem;
+
+    }
+
+    .textR{
+        display: flex;
+        text-align: end;
+        justify-content: flex-end;
+    }
+
+    .liste {
+        list-style: none;
+    }
+}

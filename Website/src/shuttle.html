@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>levity shuttle</title>
+
+    <link href="makeover.css" rel="stylesheet">
+
+</head>
+<body>
+Test vorne
+<!-- Import the component -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+
+<!-- Use it like any other HTML element -->
+<model-viewer id="shuttleshowcase" interpolation-decay="200" src="the_vector_air_bus.glb" alt="Your way to levity station"></model-viewer>
+<script>
+    (() => {
+        const modelViewer = document.querySelector('#shuttleshowcase');
+        const orbitCycle = [
+            '235deg 55deg 100m',
+            '-60deg 40deg 100m',
+            '180deg -60def 100m',
+            modelViewer.cameraOrbit
+        ];
+
+        setInterval(() => {
+            const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+            modelViewer.cameraOrbit =
+                orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+        }, 3000);
+    })();
+</script>
+
+
+
+Test
+</body>
+</html>

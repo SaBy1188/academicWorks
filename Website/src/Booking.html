@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>levity station | booking</title>
+
+    <meta name="robots" content="noindex, follow">
+    <link href="Booking.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Booking.css">
+    <link rel="stylesheet" type="text/css" href="makeover.css"/>
+</head>
+<body>
+
+<!-- NAVIGATIONBAR -->
+<nav class="navbar navbar-dark navbar-expand-lg bg-transparent fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">|evity <strong>station</strong><br>
+            <p class="jp">けいかさ</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">x</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">station</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="Booking.html">booking</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+            high-quality decks suited for your inner balance.
+      </span>
+        </div>
+    </div>
+</nav>
+<!-- NAVIGATIONBAR END -->
+
+<!-- FORM -->
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-cta">
+                    <h1>Make Your Reservation</h1>
+                </div>
+                <div class="booking-form">
+                    <form>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <span class="form-label">Destination</span>
+                                <input class="form-control" type="text" placeholder="Enter Planet">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <span class="form-label" placeholder="Enter Planet">Select Station Room</span>
+                                <select class="form-control">
+                                    <option></option>
+                                    <option>Superior-R28Y</option>
+                                    <option>GroundStation-X71S</option>
+                                    <option>SupremeLoft-Z8Y89</option>
+                                    <option>SuiteDeluxe-LS89</option>
+                                </select>
+                                <span class="select-arrow"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <span class="form-label">Guests</span>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                                <span class="select-arrow"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <span class="form-label">Children</span>
+                                <select class="form-control">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                                <span class="select-arrow"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <span class="form-label">Check In</span>
+                                <input class="form-control" type="date" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <span class="form-label">Check out</span>
+                                <input class="form-control" type="date" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-btn">
+                                <button class="btn btn-dark submit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Book</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border border-0 modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-body">
+                <img class="img-fluid" alt="Responsive image" src="Booking-Verification.png">
+                <button type="button" class="btn btn-primary btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- FORM END -->
+
+<!-- FOOTER -->
+<div class="levity-bg bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center levity-pm">
+        <p class="col-md-4 mb-0 levity-text-muted">&copy; 2023 |evity station<!--/br>office: moorfuhrtweg 13, 22301 hamburg--></p>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 levity-text-muted">station</a></li>
+            <li class="nav-item"><a href="Booking.html" class="nav-link px-2 levity-text-muted">booking</a></li>
+            <li class="nav-item"><a href="team.html" class="nav-link px-2 levity-text-muted">team</a></li>
+        </ul>
+    </footer>
+</div>
+<!-- FOOTER END -->
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
