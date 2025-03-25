@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Box Model</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        div.box {
+          background-color: gold;
+          font-family: "Roboto", sans-serif;
+          font-size: 18px;
+          font-weight: bolder;
+          width: 250px;
+          height: 150px;
+          padding: 30px;
+          margin-bottom: 50px;
+          margin-left: 10px;
+          margin-right: 100px;
+          border-color: blue;
+          border-style: solid;
+          border-width: 20px;
+          box-sizing: border-box;
+        }
+
+        div.box.innen {
+            background-color: rgb(150,200,10);
+            border-color: deeppink;
+            border-style: dotted;
+            border-width: thick;
+            display: inline-block;
+        }
+
+        div.box.innen.anders {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+  <div class="aussen">
+    <div class="box">
+        Der Inhalt der Box
+    </div>
+    <div class="box innen">
+      Noch eine Box
+    </div>
+    <div class="box innen anders">
+      Box neben Box
+    </div>
+  </div>
+</body>
+</html>
