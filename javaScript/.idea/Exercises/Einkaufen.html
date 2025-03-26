@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Academy geht einkaufen</title>
+    <script type="text/javascript">
+
+        // *********** RECIPES (don't change anything here) ************
+        var soup = { // in a recipe, the values are the quantity of that ingredient
+            potato: 3,
+            onion: 1,
+            corn: 5
+        };
+
+        var gratin = {
+            meat: 2,
+            onion: 2,
+            pea: 5
+        };
+
+        var pizza = {
+            cheese: 1,
+            tomato: 3,
+            oregano: 2
+        };
+
+        var allRecipes = [soup, gratin, pizza];
+
+        // ************** STORES (don't change anything here) ***********
+
+        var edoka = { // in a store, the values are the prices per ingredient
+            cheese: 8,
+            corn: 3,
+            meat: 6,
+            onion: 4,
+            pea: 1,
+            oregano: 7,
+            potato: 5,
+            tomato: 6
+        };
+
+        var were = {
+            cheese: 6,
+            corn: 3,
+            meat: 9,
+            onion: 5,
+            pea: 2,
+            oregano: 6,
+            potato: 3,
+            tomato: 3
+        };
+
+        var brutto = {
+            cheese: 6,
+            corn: 2,
+            meat: 9,
+            onion: 4,
+            pea: 2,
+            oregano: 8,
+            potato: 3,
+            tomato: 4
+        };
+
+        var allStores = { // this is an example of a "storeCollection"
+            Brutto: brutto,
+            Edoka: edoka,
+            Were: were,
+        };
+
+        // *************** FUNCTIONS (for you to implement!) *************
+
+        function totalNumberOfIngredients(recipe) {
+            // make it return the total number of ingredients in recipe
+            let totalCount = 0;                     // Enthält am Ende die Gesamtzahl der Zutaten
+            for (let ingredient in recipe) {
+                let count = recipe[ingredient];     // Array mit Zutaten innerhalb eines Rezepts
+                totalCount += count;                // Addiert die Zutat in Gesamtzahl
+            } return totalCount;                    // Gibt die Zahl der Zutaten zurück
+        }
+
+        function mostExpensiveIngredient(store) {
+            // make it return the name of the most expensive ingredient
+            // in the given store
+            let maxValue = 0;
+            let nameIngredient = "";
+            for (let ingredient in store) {         // Sucht die Zutat im Store
+                if (store[ingredient] > maxValue) { // Sucht die teuerste Zutat
+                    maxValue = store[ingredient];   // Zeichnet den Preis aus
+                    nameIngredient = ingredient;    // Benennt die Zutat
+                }
+            } return nameIngredient;                // Gibt den Namen der Zutat zurück
+        }
+
+        function costOfRecipeInStore(recipe, store) {
+            // make it return what it costs to shop for recipe at store
+            let costRecipe = 0;                     // Am Ende ist hier der Gesamtpreis abgespeichert
+            for (let ingredient in recipe) {
+                let count = recipe[ingredient];     // Stückzahl in Rezept
+                let price = store[ingredient];      // Preis in Store
+                let total = count * price;
+                costRecipe += total;
+            }
+            return costRecipe;                      // Zählt den Gesamtpreis des Produkts auf die Result Variable
+        }
+
+        function costOfRecipesInStore(recipeList, store){
+            // it takes an array of recipes and a store, and should return
+            // the total cost for shopping for all the recipes in the given store.
+            // Feel free to use costOfRecipe inside this function!
+            let totalCost = 0;
+            for (let recipe of recipeList) {        // of iteriert über Elemente des Arrays
+                let costPerRecipe = costOfRecipeInStore(recipe, store);
+                totalCost += costPerRecipe;
+            } return totalCost;
+        }
+
+        function cheapestStoreForRecipe(recipe, storeCollection){
+            // make it return the key for the store in storeCollection
+            // that has the cheapest total cost for recipe. Feel free
+            // to use costOfRecipe inside this function!
+            let cheapestCost;
+            let cheapestStoreName;
+            for (let storeName in storeCollection) {
+                let cost = costOfRecipeInStore(recipe, storeCollection[storeName]);
+                if (cheapestCost == undefined || cost < cheapestCost) {
+                    cheapestCost = cost;
+                    cheapestStoreName = storeName;
+                }
+            }
+            return cheapestStoreName;
+        }
+
+        function writeShoppingList(recipeList) {
+            // it takes an array of recipes, and should return an object looking like a recipe,
+            // but containing the quantities for all recipes in the list
+            let shoppingList = {};
+            for (let recipe of recipeList) {
+                for (let ingredient in recipe) {
+                    let count = recipe[ingredient];     //
+                    if (shoppingList[ingredient] == undefined) {    // Zutat bereits in ShoppingList?
+                        shoppingList[ingredient] = count;
+                    } else {
+                        let oldCount = shoppingList[ingredient];
+                        shoppingList[ingredient] = oldCount + count;
+                    }
+                }
+            }
+            return shoppingList;
+        }
+
+        function possibleRecipes(recipeList, store, maxCost) {
+            // make it return a new recipeList (which is an array)
+            // containing all recipes that we can afford to shop for
+            // (individually) at the given store
+            let affordableRecipes = [];
+            for (let recipe of recipeList) {                    // Über Rezepte durchiterieren
+                let cost = costOfRecipeInStore(recipe, store);  // Kosten im Store prüfen
+                if (cost <= maxCost) {
+                    affordableRecipes.push(recipe);
+                }
+            } return affordableRecipes;
+        }
+
+
+        // ************** TESTS (don't change anything here) ************
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            var fails = 0;
+
+            test(totalNumberOfIngredients,[
+                [[soup], 9, "soup"],
+                [[pizza], 6, "pizza"]
+            ]);
+
+            test(mostExpensiveIngredient,[
+                [[brutto], "meat", "Brutto"],
+                [[edoka], "cheese", "Edoka"],
+            ]);
+
+            test(costOfRecipeInStore,[
+                [[gratin, were], 38, "gratin at were"],
+                [[pizza, edoka], 40, "pizza at edoka"],
+            ]);
+
+            test(costOfRecipesInStore,[
+                [[[gratin], were], 38, "gratin at were"],
+                [[[gratin, pizza], edoka], 65, "gratin and pizza at edoka"],
+            ]);
+
+            test(cheapestStoreForRecipe,[
+                [[soup, allStores], "Brutto", "soup among all stores"],
+                [[gratin, allStores], "Edoka", "gratin among all stores"],
+            ]);
+
+            test(writeShoppingList,[
+                [[[soup, gratin]], {
+                    corn: 5,
+                    meat: 2,
+                    onion: 3,
+                    pea: 5,
+                    potato: 3,
+                }, "soup and gratin"],
+                [[allRecipes], {
+                    cheese: 1,
+                    corn: 5,
+                    meat: 2,
+                    onion: 3,
+                    pea: 5,
+                    oregano: 2,
+                    potato: 3,
+                    tomato: 3
+                    }, "all recipes"],
+            ]);
+
+            test(possibleRecipes,[
+                [[allRecipes, edoka, 35], [soup, gratin], "35 at Were"],
+                [[allRecipes, were, 5], [], "5 at Edonka"]
+            ]);
+
+            function test(func, tests) {
+                console.log("\n********* Testing " + func.name + " **************");
+                tests.forEach(function(test,n) {
+                    try {
+                        var result = func.apply({},test[0]);
+                        if (typeof result === 'object' && !Array.isArray(result)){
+                            result = Object.keys(result).sort().reduce((mem,key)=>({...mem,[key]:result[key]}),{});
+                            test[1] = Object.keys(test[1]).sort().reduce((mem,key)=>({...mem,[key]:test[1][key]}),{});
+                        }
+                        if (JSON.stringify(result) === JSON.stringify(test[1])){
+                            console.log("...correctly returned", JSON.stringify(test[1]), "for", test[2]);
+                        } else {
+                            console.warn("...erroneously returned", JSON.stringify(result), "instead of", JSON.stringify(test[1]), "for", test[2]);
+                            fails++;
+                        }
+                    } catch(e) {
+                        console.log("...threw an error when testing for", test[2]);
+                        fails++;
+                        setTimeout(function(){throw e;},0);
+                    }
+                });
+            }
+            
+            if (fails === 0) {
+                document.getElementById('status').textContent = '👍';
+                document.getElementById('msg').textContent = 'All tests passed. Well done!';
+            } else {
+                document.getElementById('status').textContent = '❌';
+                document.getElementById('msg').textContent = fails.toString() + ' tests failed. See console for details.';
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1 id="status"></h1>
+    <p id="msg"></p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript">
+    // Zufallszahl 1-10
+    const loesung = Math.floor(Math.random() * 10) + 1;
+    // TODO: sag mit alert, ob ich gewonnen habe
+    let tippCounter = 0;
+    do {
+      let tippStr = parseInt(prompt("Rate mal, welche Zahl?"));
+      if (tippStr == "") {
+        alert("Gib eine Zahl ein.");
+        continue;
+      }
+
+      let tipp = parseInt(tippStr);
+      tippCounter++;
+
+      if (tipp == loesung) {
+        alert("Richtige Zahl erraten, mit " + tippCounter + " Versuchen.");
+        break;
+      } else if (tippCounter >= 3) {
+        alert("Falsche Zahl. Maximale Versuche: " + tippCounter)
+      } else if (tipp < loesung) {
+        alert("Zahl ist zu klein. Versuch: " + tippCounter);
+      } else {
+        alert("Zahl ist zu groß. Versuch: " + tippCounter)
+      }
+    } while (tippCounter < 3);
+
+  </script>
+</head>
+<body></body>
+</html>

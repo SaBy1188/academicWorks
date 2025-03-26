@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Objekte ohne Klassen
+    const meinObjekt = {
+        irgendwas: 42,
+        wasAnderes: "Hallo"
+    };
+
+    meinObjekt.irgendwas;
+    meinObjekt["irgendwas"];
+
+    meinObjekt.neueVariable = 1234.123;
+
+    delete meinObjekt.neueVariable;
+
+
+    // Iteration über Objekte
+    for (const key in meinObjekt) {
+        console.log("key " + key + " value");
+    }
+
+
+    // Objekte in Objekten
+    const ich = {
+        name: Sabrin,
+        adresse: {
+            stadt: "Berlin",
+            teil: "Koepenik",
+            plz: 19379
+        }
+    };
+    ich.adresse.plz;
+
+
+    // Array und const
+    const dinge = ["Tomaten", false, 42];
+    dinge
+    dinge.push("Bohnen");
+    dinge[0] = "Mais";
+
+    // -> nicht möglich
+    dinge = ["Gurke", true, 666];
+
+
+    const x = {a: 1};   // Java: Auto x = new Auto(1)
+    const y = {a: 1};
+
+    x == y;     // false, unterschiedliche Referenzwerte
+    x === y     // false, prüft Datentypen und Referenzwerte
+    x.a === y.a // true, beides Zahlen  // Java: x.getPS() == y.getPS() => true
+
+    const z = x;                        // Java: Auto x = z; neue Zuweisung, selbes Objekt
+    x == z;                             // true, selbe Objektreferenz
+
+    // let = Datentypen
+    // const = final (Java)
+
+
+    // Funktionen = Methoden
+    const irgendwas = function () {
+        return 42;
+    }
+    irgendwas();                // ruft Methode auf
+    const blubb = irgendwas;    // Methode weiterreichen
+
+    blubb();                    // ruft Methode erneut auf
+
+
+    // Funktionen an Objekten
+    const meinObjekt = {
+        name: 'Philip',
+        sing: function () {
+            console.log(this.name + 'is singing: lalala');
+        }
+    }
+    meinObjekt.sing();
+
+
+    const meinNeuesObjekt = {
+        name: 'Hans',
+        innerheight: 180,
+    }
+
+    function hoehenMessung() {
+        console.log('Groesse:', this.innerheight);
+    }
+
+    meinNeuesObjekt.messung = hoehenMessung;
+    meinNeuesObjekt
+    meinNeuesObjekt.messung();
+    hoehenMessung();
+
+
+    // Funktionen als Parameter
+    function verdoppler(zahl) {
+        return zahl * 2;
+    }
+
+    function verdreifacher(zahl) {
+        return zahl * 3;
+    }
+
+    function einsBisZehn(operation) {
+        for (let i = 1; i <= 10; i++) {
+            const ergebnis = operation(i);
+            console.log(ergebnis);
+        }
+    }
+
+    einsBisZehn(verdoppler);
+    einsBisZehn(verdreifacher);
+
+
+    // Callback Funktionen
+    function wecker() {
+        console.log(("Guten Morgen, aufstehen!");
+    }
+
+    setTimeout(wecker, 5000);           // Callback Funktion wird nach 5 (5000) Sekunden ausgegeben
+
+    setTimeout(function () {            // Funktion wird nach 3 (3000) Sekunden aufgerufen
+        console.log("Schlaf weiter!")
+    }, 3000);
+
+
+    // Arrow Funktionen
+
+</script>
+</body>
+</html>

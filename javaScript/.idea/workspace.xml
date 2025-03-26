@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="28d52845-0b0f-4ded-8515-818509e5e06a" name="Changes" comment="backup JavaScript">
+      <change afterPath="$PROJECT_DIR$/.idea/Exercises/CallbackTorsten.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Exercises/Programmierer/Programmierer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Exercises/Programmierer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Exercises/Spickzettel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Exercises/ExerciseEinkaufen.html" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Exercises/Einkaufen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Exercises/Projekt/Mensch.js" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Exercises/Programmierer/Mensch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Exercises/Projekt/Programmierer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Exercises/Programmierer/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Exercises/Programmierer/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MdB54NOtqCuQ7GNSCiz5Zdk9iV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/SabrinByaah/Desktop/Assessment-1a",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SabrinByaah\Desktop\JavaScript\JavaScript_Exercises\.idea\Exercises\Projekt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SabrinByaah\Desktop\JavaScript\JavaScript_Exercises\.idea\Exercises\Projekt" />
+      <recent name="C:\Users\SabrinByaah\Desktop\JavaScript\JavaScript_Exercises\.idea\Exercises" />
+      <recent name="C:\Users\SabrinByaah\Desktop\JavaScript\JavaScript_Exercises" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28d52845-0b0f-4ded-8515-818509e5e06a" name="Changes" comment="" />
+      <created>1678087411704</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678087411704</updated>
+      <workItem from="1678087412984" duration="28741000" />
+      <workItem from="1678258283613" duration="615000" />
+      <workItem from="1678345470940" duration="14092000" />
+      <workItem from="1678431800352" duration="8562000" />
+      <workItem from="1678453234593" duration="4906000" />
+    </task>
+    <task id="LOCAL-00001" summary="backup JavaScript">
+      <created>1678358900098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678358900098</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="backup JavaScript" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup JavaScript" />
+  </component>
+</project>

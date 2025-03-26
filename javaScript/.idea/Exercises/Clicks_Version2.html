@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Callbacks: clicks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+  <button id="btn1">Button 1</button>
+  <button id="btn2">Button 2</button>
+  <button id="btn3">Button 3</button>
+</div>
+
+<script src="output.js"></script>
+<script>
+
+  function button1Clicked() {
+    output("Ich bin eine 'normale' Funktion!");
+  }
+
+  document.getElementById("btn1").addEventListener("click", /* TODO */);
+
+
+  /*
+      Aufgabe:
+
+      1) Ergänze den Aufruf von addEventListener so, dass die Funktion button1Clicked() aufgerufen wird,
+         wenn Button 1 geklickt wird.
+
+      2) Registriere einen EventListener an Button 2. Die Callback-Funktion soll als anonyme Funktion
+         reingereicht werden. Beim Klicken auf den Button soll ausgegeben werden: "Ich bin eine anonyme Funktion".
+         Schlage ggf. auf den Folien nach, wie eine anonyme Funktion deklariert wird.
+
+      3) Registriere einen EventListener an Button 3. Die Callback-Funktion soll als Arrow-Function
+         reingereicht werden. Beim Klicken auf den Button soll ausgegeben werden: "Ich bin eine Arrow-Function".
+         Schlage ggf. auf den Folien nach, wie eine Arrow-Function deklariert wird.
+  */
+</script>
+</body>
+</html>

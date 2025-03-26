@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Callbacks: kaffee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script src="output.js"></script>
+<script>
+  /*
+      Funktionsweise der Kaffemaschine: Für die Zubereitung eines Getränks wird ein Array
+      (steht für die Tasse) sowie ein callback übergeben. Nach Ablauf der Zubereitungszeit wird der Callback
+      aufgerufen und die Tasse enthält das Getränk.
+  */
+
+  var kaffeeMaschine = {
+    // Interne funktionsweise der Kaffemaschine - kann ignoriert werden.
+    busy: false,
+    zubereitung: function(tasse, produkt, zeit, callback) {
+      if (this.busy) {
+        output("FEHLER: Maschine ist nicht bereit.");
+        return;
+      }
+      this.busy = true;
+      setTimeout(() => {
+        this.busy = false;
+        tasse.push(produkt);
+        callback(tasse);
+      }, zeit);
+    }
+  };
+
+  // Vorgegebene Methoden der Kaffemaschine - nicht verändern!
+  kaffeeMaschine.espresso = function(tasse, callback) {
+    this.zubereitung(tasse, "espresso", 100, callback);
+  }
+  kaffeeMaschine.milchSchaum = function(tasse, callback) {
+    this.zubereitung(tasse, "milchSchaum", 200, callback);
+  }
+  kaffeeMaschine.heissWasser = function(tasse, callback) {
+    this.zubereitung(tasse, "heissWasser", 150, callback);
+  }
+  kaffeeMaschine.kakao = function(tasse, callback) {
+    this.zubereitung(tasse, "kakao", 50, callback);
+  }
+  kaffeeMaschine.americano = function(tasse, callback) {
+    /*
+        Americano - erst espresso, dann heissWasser
+
+        Wir verwenden als Callback eine Arrow Function, um unser "this"
+        (also die kaffeMaschine) darin weiter verwenden zu können.
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this
+
+        Bonus-Aufgabe: Wie könnten wir den gleichen Effekt ohne Arrow Function erreichen?
+    */
+    this.espresso(tasse, () => {
+      this.heissWasser(tasse, callback);
+    })
+  }
+
+
+  ///////////// START DER AUFGABE /////////////////////
+  /*
+      Implementiere die folgenden Methoden der kaffeMaschine.
+      Verwende dafür die vorgegebenen Methoden. Orientiere dich am Beispiel Americano.
+  */
+
+  kaffeeMaschine.cappuchino = function(tasse, callback) {
+    // TODO: erst milchSchaun, dann espresso
+    this.milchSchaum(tasse, () => {
+      this.espresso(tasse, callback)
+    });
+  }
+
+  kaffeeMaschine.latte = function(tasse, callback) {
+    // TODO: erst espresso, dann milchSchaum
+    this.espresso(tasse, () => {
+      this.milchSchaum(tasse, callback)
+    });
+  }
+
+  kaffeeMaschine.doppio = function(tasse, callback) {
+    // TODO: zweimal espresso
+    this.espresso(tasse, () => {
+      this.espresso(tasse, callback)
+    });
+  }
+
+  kaffeeMaschine.kaba = function(tasse, callback) {
+    // TODO: erst milchSchaum, dann kakao
+    this.milchSchaum(tasse, () => {
+      this.kakao(tasse, callback)
+    });
+  }
+
+  kaffeeMaschine.cappuSpezial = function(tasse, callback) {
+    // TODO: erst milchSchaum, dann espresso, dann kakao
+    this.milchSchaum(tasse, () => {
+      this.espresso(tasse, () => {
+        this.kakao(tasse, callback)
+      });
+    });
+  }
+
+  kaffeeMaschine.philipsSpezial = function(tasse, callback) {
+    // TODO: erst heissWasser, dann espresso, dann kakao
+    this.heissWasser(tasse, () => {
+      this.espresso(tasse, () => {
+        this.kakao(tasse, callback)
+      });
+    });
+  }
+
+  /*
+      Du hast die Aufgabe gelöst, wenn am Ende "ALLE TESTS OK." erscheint.
+  */
+  ///////////// ENDE DER AUFGABE //////////////////////
+
+  var tests = [];
+  function test(name, func, expected) {
+    var cb = function(result) {
+      var r = JSON.stringify(result);
+      var e = JSON.stringify(expected);
+      if (r != e) {
+        output("TEST FEHLER in " + name);
+        output("Erwartet: " + e);
+        output("Tatsächlich: " + r);
+        return;
+      }
+      output("TEST OK " + name);
+
+      if (tests.length == 0) {
+        output("ALLE TESTS OK.")
+      }
+      else {
+        tests.shift()();
+      }
+    }
+
+    tests.push(() => {
+      output("TEST START " + name);
+      func(cb);
+    });
+  }
+
+  test("espresso", cb => kaffeeMaschine.espresso([], cb), ["espresso"]);
+  test("americano", cb => kaffeeMaschine.americano([], cb), ["espresso", "heissWasser"]);
+  test("cappuchino", cb => kaffeeMaschine.cappuchino([], cb), ["milchSchaum", "espresso"]);
+  test("latte", cb => kaffeeMaschine.latte([], cb), ["espresso", "milchSchaum"]);
+  test("doppio", cb => kaffeeMaschine.doppio([], cb), ["espresso", "espresso"]);
+  test("kaba", cb => kaffeeMaschine.kaba([], cb), ["milchSchaum", "kakao"]);
+  test("cappuSpezial", cb => kaffeeMaschine.cappuSpezial([], cb), ["milchSchaum", "espresso", "kakao"]);
+  test("philipsSpezial", cb => kaffeeMaschine.philipsSpezial([], cb), ["heissWasser", "espresso", "kakao"]);
+
+  tests.shift()();
+
+  setTimeout(function() {
+    if(tests.length > 0) {
+      output("TEST nicht abgeschlossen. Jemand wartet vergeblich auf ein Heißgetränk.")
+    }
+  }, 1000);
+
+</script>
+</body>
+</html>

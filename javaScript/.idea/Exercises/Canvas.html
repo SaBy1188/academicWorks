@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+</head>
+<body>
+<canvas id="meinCanvas" width="200" height="200"></canvas>
+<script>
+  // Zugriff auf das Canvas-Element
+  const canvas = document.getElementById("meinCanvas");
+
+  // Zugriff auf den 2D-Kontext des Canvas-Elements
+  const ctx = canvas.getContext("2d");
+
+  // Zeichnen des Rechtecks
+  ctx.fillStyle = "blue"; // Festlegen der Füllfarbe des Rechtecks
+  ctx.fillRect(50, 50, 100, 100); // Zeichnen des Rechtecks
+</script>
+</body>
+</html>

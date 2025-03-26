@@ -1,0 +1,47 @@
+JavaScript              vs      Java
+
+dynamisch typisiert     |       statisch typisiert
+Arrays sind flexibel    |       Arrays sind fix
+Variablen können
+Funktionen sein         |       Methoden sind fix
+File wird interpretiert |       File wird kompiliert
+ohne Veränderung im
+Webbrowser              |       x
+Datentyp von Variablen
+kann wäh. Laufzeit
+geändert werden         |       x
+
+
+X   Java kann nicht per Script eingebunden werden
+X   Java kann kein DOM
+O   JavaScript hat Klassen
+O   JavaScript kann Vererbung
+X   JavaScript hat nur eine, nicht alle Abhängigkeiten
+O   Iteration mit for oder of; mit in über text[] (nicht über runde Klammern, da Indizes)
+O   JavaScript kann DOM verändern
+X   Java kann DOM nicht verändern
+
+DOM Document Object Module
+
+prototype.pin = 2
+Oliver Passwort, bleibt 2 da ohne Zuweisung
+
+npm install: installiert und lädt Paket, (node_modules) in Package.json
+
+push    = aktuelles Array
+concat  = neues Array
+
+doc.querySelectorAll('button').length;      DOM, liefert alle Button Tags, length = Anzahl der Button Tags
+
+let     = ALLE Datentypen (boolean, int usw.)
+
+Arrow Function => statt function()
+
+String = "5"; und int = 5;      == true (Objektvergleich, Inhalt also 5 und 5)
+                                === false (Objektvergleich, Datentyp also String 5 und int 5)
+
+of vs in    of = Values, Keys;  in = alle Elemente in einer Funktion
+                                in -> soup[element] (element: value) bzw. of -> store[value]
+                                for (let ingredient in soup) { total = soup[ingredient];}
+            bei Arrays          in -> Index, of -> Element; in = über ein Objekt itierieren
+

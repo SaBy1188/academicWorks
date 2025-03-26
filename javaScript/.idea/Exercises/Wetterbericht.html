@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Callbacks: wetter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+    <button id="wetterBericht">Wetterbericht</button>
+</div>
+<script src="output.js"></script>
+<script>
+    /**
+     * Wandelt eine Koordinate (latitude und longitude) um in eine Postleitzahl.
+     *
+     * Die Funktion gibt ein Promise zurück, was zu einem String mit der PLZ auflöst, falls möglich.
+     */
+    function coordsToPlz(latitude, longitude) {
+        return new Promise((resolve, reject) => {
+            // hochkomplizierter Algorithmus zur Bestimmung der PLZ - bitte ignorieren!
+            if (longitude > 10 && longitude < 12 && latitude > 47 && latitude < 49) {
+                setTimeout(() => resolve("80469"), Math.random() * 3000);
+            } else {
+                setTimeout(() => reject("Unbekannt"), Math.random() * 3000);
+            }
+        });
+    }
+
+    /**
+     * liefert den Wetterbericht für eine Postleitzahl.
+     *
+     * Der Callback wird mit zwei Parametern aufgerufen: Grad Celsius und Zustand
+     */
+    function wetterBericht(plz, callback) {
+        setTimeout(function () {
+            // hochkomplizierter Algorithmus zur Bestimmung des Wetters - bitte ignorieren
+            if (plz == "80469") {
+                callback(12, "bewölkt");
+            } else if (plz == "22767") {
+                callback(9, "regen");
+            } else {
+                callback(0, "unbekannt");
+            }
+        }, Math.random() * 2000);
+    }
+
+    document.getElementById("wetterBericht").addEventListener("click", function () {
+        output("Wetterbericht, bitte!");
+    });
+
+    // Aufgabe
+    navigator.geolocation.getCurrentPosition((position) => {
+        doSomething(position.coords.latitude, position.coords.longitude);
+    });
+
+    /*
+        Aufgabe: Beim Klick auf den Button soll die aktuelle Position des Nutzers abgefragt, in eine
+        Postleitzahl umgerechnet und schließlich das aktuelle Wetter dafür angezeigt werden.
+
+        Beispiel für die Bestimmung der Position:
+        https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API#Getting_the_current_position
+
+        Beispiel für die Berechnung einer Postleitzahl:
+
+            coordsToPlz(48, 11).then(function(plz) {
+                output("Die PLZ ist " + plz);
+            });
+
+        Siehe auch: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+        Beispiel für den Wetterbericht:
+
+            wetterBericht("22767", function(grad, zustand) {
+                output("Das Wetter in Hamburg: " +  zustand + " bei " + grad + "°C");
+            });
+
+
+        Bonus-Aufgabe: Behandle auch die Fehler-Fälle:
+            - Nutzer lehnt Positions-Abfrage ab
+            - PLZ für Koordinaten unbekannt
+            - Keine Wetter-Daten für PLZ verfügbar
+
+        Bonus-Aufgabe: Schreibe die Funktion wetterBericht um, so dass sie ein Promise
+        zurück gibt.
+    */
+
+</script>
+</body>
+</html>

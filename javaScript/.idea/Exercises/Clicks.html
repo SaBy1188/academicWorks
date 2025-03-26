@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Callbacks: clicks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+  <button id="btn1">Button 1</button>
+  <button id="btn2">Button 2</button>
+</div>
+
+<script src="output.js"></script>
+<script>
+  document.getElementById("btn1").addEventListener("click", function() {
+    output("Button 1 geklickt.")
+  });
+
+  setTimeout(function() {
+    output("Drei Sekunden sind vergangen seit dem Start.")
+  }, 3000);
+
+  document.getElementById("btn2").addEventListener("click", function() {
+    output("Button 2 geklickt.");
+    setTimeout(function() {
+      output("Butto 2 wurde vor einer Sekunde geklickt.")
+    }, 1000);
+  });
+
+  /*
+      Aufgabe: Nach jedem Klick auf den zweiten Button soll genau eine Sekunde später eine
+      weitere Nachricht angezeigt werden.
+  */
+</script>
+</body>
+</html>
