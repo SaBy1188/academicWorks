@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Linkz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" th:href="@{/}">
+                <h1 class="title">The best Linkz</h1>
+            </a>
+        </div>
+        <div class="navbar-menu is-active">
+            <div class="navbar-start">
+                <a class="navbar-item" th:href="@{/submit}" sec:authorize="isAuthenticated()">Post Link</a>
+                <a class="navbar-item" th:href="@{/register}" sec:authorize="isAnonymous()">Register</a>
+                <a class="navbar-item" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a>
+                <!--a class="navbar-item" th:href="@{/logout}" sec:authorize="isAuthenticated()">Logout</a-->
+                <div class="navbar-item" sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="button is-small is-inverted">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <article class="message is-success" th:if="${linkSubmitted}">
+                <div class="message-body">
+                    Thanks for submitting your link!
+                </div>
+            </article>
+            <article class="message is-success" th:if="${voted}">
+                <div class="message-body">
+                    Thanks for voting!
+                </div>
+            </article>
+            <article class="message is-success" th:if="${deleted}">
+                <div class="message-body">
+                    The link was deleted.
+                </div>
+            </article>
+            <article class="message is-success" th:if="${registered}">
+                <div class="message-body">
+                    You are now registered. Unfortnuately, there is no login yet...
+                </div>
+            </article>
+            <div class="box" th:each="link : ${links}">
+                <article class="media">
+                    <div class="media-left">
+                        <div class="field">
+                            <form th:action="@{/vote}" sec:authorize="isAuthenticated()" method="post">
+                                <input type="hidden" name="linkId" th:value="${link.id}">
+                                <input type="hidden" name="up" th:value="${true}">
+                                <button type="submit" class="button is-small is-fullwidth">▲</button>
+                            </form>
+                            <form th:action="@{/vote}" sec:authorize="isAuthenticated()" method="post">
+                                <input type="hidden" name="linkId" th:value="${link.id}">
+                                <input type="hidden" name="up" th:value="${false}">
+                                <button type="submit" class="button is-small is-fullwidth">▼</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <a th:href="${link.url}" th:text="${link.title}" target="_blank"></a>
+                                <br>
+                                <strong th:text="${link.points}"></strong> Points
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <form th:action="@{/delete/{linkId}(linkId=${link.id})}" sec:authorize="isAuthenticated()" method="post">
+                            <button type="submit" class="button is-danger is-small is-outlined">×</button>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
